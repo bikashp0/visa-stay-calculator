@@ -7,7 +7,7 @@ import VisualTimeline from './components/VisualTimeline';
 import WhatIfCalculator from './components/WhatIfCalculator';
 import { useTravelHistory } from './hooks/useTravelHistory';
 import { calculateVisaStay } from './utils/visaCalculations';
-import { Info } from 'lucide-react';
+import AdSense from './utils/Adsense';
 
 function App() {
   const { travelHistory, addEntry, deleteEntry, clearAll } = useTravelHistory();
@@ -26,13 +26,12 @@ function App() {
   return (
     <div className="min-h-screen pb-12">
       <Header />
-      
+
       <div className="container mx-auto px-4">
         {/* Info Banner */}
         {showInfo && (
           <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6 rounded-lg">
             <div className="flex items-start">
-              <Info className="text-yellow-600 flex-shrink-0 mt-1 mr-3" size={20} />
               <div className="flex-1">
                 <p className="text-sm text-yellow-900 mb-2">
                   <strong>How to use this calculator:</strong>
@@ -97,6 +96,24 @@ function App() {
                 <ResultsSummary results={results} travelHistory={travelHistory} />
                 <VisualTimeline results={results} />
                 <WhatIfCalculator travelHistory={travelHistory} />
+
+                {/* Second AdSense below results */}
+                <div className="container mx-auto mt-6">
+                  <div className="hidden sm:block">
+                    <AdSense
+                      client="ca-pub-1519742476496426"
+                      slot="1308011147"
+                      style={{ display: 'block', width: '100%', minHeight: '90px' }}
+                    />
+                  </div>
+                  <div className="block sm:hidden">
+                    <AdSense
+                      client="ca-pub-1519742476496426"
+                      slot="1308011147"
+                      style={{ display: 'block', width: '100%', minHeight: '60px' }}
+                    />
+                  </div>
+                </div>
               </>
             )}
           </div>

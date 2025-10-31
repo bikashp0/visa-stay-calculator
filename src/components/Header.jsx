@@ -1,5 +1,6 @@
 import React from 'react';
 import { Plane } from 'lucide-react';
+import AdSense from '../utils/Adsense';
 
 export default function Header() {
   return (
@@ -20,12 +21,32 @@ export default function Header() {
             </div>
           </div>
         </div>
-        
+
         <div className="mt-4 bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
           <p className="text-sm text-blue-900">
             <strong>What is Condition 8558?</strong> Visitor visa holders (Subclass 600) with this condition 
             must not stay in Australia for more than <strong>12 months in any 18-month period</strong>.
           </p>
+        </div>
+      </div>
+
+      {/* Responsive AdSense ad */}
+      <div className="container mx-auto mt-4">
+        {/* Desktop */}
+        <div className="hidden sm:block">
+          <AdSense
+            client="ca-pub-1519742476496426"
+            slot="2202306320"
+            style={{ display: 'block', width: '100%', minHeight: '90px' }}
+          />
+        </div>
+        {/* Mobile */}
+        <div className="block sm:hidden">
+          <AdSense
+            client="ca-pub-1519742476496426"
+            slot="2202306320"
+            style={{ display: 'block', width: '100%', minHeight: '60px' }}
+          />
         </div>
       </div>
     </header>
