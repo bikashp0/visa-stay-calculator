@@ -4,9 +4,10 @@ const AdSense = ({ client, slot, style }) => {
   const adRef = useRef(null);
 
   useEffect(() => {
-    const pushAd = () => {
+    const tryPush = () => {
       if (!window.adsbygoogle || !adRef.current) return;
 
+      // Only push if container has width
       if (adRef.current.offsetWidth > 0 && !adRef.current.dataset.adsbygoogleDone) {
         try {
           (window.adsbygoogle = window.adsbygoogle || []).push({});
@@ -14,14 +15,14 @@ const AdSense = ({ client, slot, style }) => {
         } catch (e) {
           console.error('AdSense error', e);
         }
-      } else if (adRef.current.offsetWidth === 0) {
-        // Retry after 200ms if container width is still 0
-        setTimeout(pushAd, 200);
+      } else {
+        // Retry after 300ms if width is still 0
+        setTimeout(tryPush, 300);
       }
     };
 
-    // Wait for the next paint
-    requestAnimationFrame(pushAd);
+    const id = requestAnimationFrame(tryPush);
+    return () => cancelAnimationFrame(id);
   }, []);
 
   return (

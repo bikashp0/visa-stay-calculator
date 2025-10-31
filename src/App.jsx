@@ -8,6 +8,7 @@ import WhatIfCalculator from './components/WhatIfCalculator';
 import { useTravelHistory } from './hooks/useTravelHistory';
 import { calculateVisaStay } from './utils/visaCalculations';
 import AdSense from './utils/Adsense';
+import BuyMeCoffeeButton from './utils/BuyMeCoffeeButton';
 
 function App() {
   const { travelHistory, addEntry, deleteEntry, clearAll } = useTravelHistory();
@@ -127,6 +128,10 @@ function App() {
               This tool helps Subclass 600 visa holders calculate their remaining stay under Condition 8558, 
               which limits stays to 12 months within any 18-month period.
             </p>
+            <div className="mt-4 mb-8"> 
+                <BuyMeCoffeeButton />
+            </div>
+            
             <div className="flex flex-wrap justify-center gap-4 text-sm">
               <a
                 href="https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/visitor-600"
