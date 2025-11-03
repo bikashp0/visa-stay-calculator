@@ -128,9 +128,9 @@ function App() {
               This tool helps Subclass 600 visa holders calculate their remaining stay under Condition 8558, 
               which limits stays to 12 months within any 18-month period.
             </p>
-            <div className="mt-4 mb-8"> 
+            {/* <div className="mt-4 mb-8"> 
                 <BuyMeCoffeeButton />
-            </div>
+            </div> */}
             
             <div className="flex flex-wrap justify-center gap-4 text-sm">
               <a
